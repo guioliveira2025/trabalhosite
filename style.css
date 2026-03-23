@@ -1,30 +1,85 @@
-// Alternar tema
-function toggleTema() {
-document.body.classList.toggle("dark");
+/* Reset básico */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
 }
 
-// Validação do formulário
-document.getElementById("formContato").addEventListener("submit", function(e) {
-e.preventDefault();
-
-let nome = document.getElementById("nome").value;
-let email = document.getElementById("email").value;
-let mensagem = document.getElementById("mensagem").value;
-
-if(nome === "" || email === "" || mensagem === "") {
-alert("Preencha todos os campos!");
-return;
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color: #f4f4f4;
+color: #333;
+line-height: 1.6;
 }
 
-let emailValido = /\S+@\S+\.\S+/;
-
-if(!emailValido.test(email)) {
-alert("Email inválido!");
-return;
+/* Header */
+header {
+background-color: #222;
+color: white;
+padding: 20px;
+text-align: center;
 }
 
-document.getElementById("mensagemSucesso").innerText =
-"Mensagem enviada com sucesso!";
+/* Menu */
+nav {
+margin-top: 10px;
+}
 
-document.getElementById("formContato").reset();
-});
+nav a {
+color: white;
+text-decoration: none;
+margin: 0 10px;
+font-weight: bold;
+}
+
+nav a:hover {
+text-decoration: underline;
+}
+
+/* Seções */
+section {
+padding: 40px;
+max-width: 900px;
+margin: auto;
+}
+
+/* Formulário */
+form {
+display: flex;
+flex-direction: column;
+max-width: 400px;
+}
+
+input, textarea {
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+button {
+padding: 10px;
+border: none;
+background-color: #222;
+color: white;
+cursor: pointer;
+border-radius: 5px;
+}
+
+button:hover {
+background-color: #444;
+}
+
+/* Tema escuro */
+.dark {
+background-color: #121212;
+color: white;
+}
+
+.dark header {
+background-color: #000;
+}
+
+.dark button {
+background-color: #555;
+}
