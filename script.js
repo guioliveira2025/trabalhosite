@@ -1,38 +1,34 @@
-body {
-font-family: Arial;
-margin: 0;
-background: #f4f4f4;
+document.addEventListener("DOMContentLoaded", function () {
+
+const form = document.getElementById("formContato");
+const mensagemSucesso = document.getElementById("mensagemSucesso");
+
+form.addEventListener("submit", function (e) {
+e.preventDefault();
+
+const nome = document.getElementById("nome").value.trim();
+const email = document.getElementById("email").value.trim();
+const mensagem = document.getElementById("mensagem").value.trim();
+
+if (nome === "" || email === "" || mensagem === "") {
+alert("Preencha todos os campos!");
+return;
 }
 
-header {
-background: #222;
-color: white;
-padding: 15px;
-text-align: center;
+const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailValido.test(email)) {
+alert("Digite um email válido!");
+return;
 }
 
-nav a {
-margin: 10px;
-color: white;
-text-decoration: none;
-}
+mensagemSucesso.textContent = "Mensagem enviada com sucesso!";
+form.reset();
+});
 
-section {
-padding: 30px;
-}
+});
 
-form {
-display: flex;
-flex-direction: column;
-width: 300px;
-}
-
-input, textarea {
-margin: 10px 0;
-padding: 10px;
-}
-
-.dark {
-background: #121212;
-color: white;
+/* Alternar tema */
+function toggleTema() {
+document.body.classList.toggle("dark");
 }
